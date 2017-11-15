@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="duke" class="chapter02.springidol.service.impl.Juggler">
+        <constructor-arg value="15"/>
+    </bean>
+
+    <!-- 配置sonnet29文件   -->
+    <bean id="sonnet29" class="chapter02.springidol.service.impl.Sonnet29">
+    </bean>
+
+    <bean id="poeticDuke" class="chapter02.springidol.service.impl.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg ref="sonnet29"/>
+    </bean>
+</beans>
