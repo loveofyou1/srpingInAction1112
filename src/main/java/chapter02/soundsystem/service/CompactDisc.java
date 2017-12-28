@@ -6,4 +6,6 @@ package chapter02.soundsystem.service;
  */
 public interface CompactDisc {
     void play();
+
+    void playTrack(int track);
 }

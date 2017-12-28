@@ -21,22 +21,29 @@ public class BlankDisc implements CompactDisc {
         this.artlist = artlist;
     }
 
-    /* public void setTitle(String title) {
-         this.title = title;
-     }
+    public BlankDisc() {
+    }
 
-     public void setArtlist(String artlist) {
-         this.artlist = artlist;
-     }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-     public void setTracks(List<String> tracks) {
-         this.tracks = tracks;
-     }
- */
+    public void setArtlist(String artlist) {
+        this.artlist = artlist;
+    }
+
+    public void setTracks(List<String> tracks) {
+        this.tracks = tracks;
+    }
+
     public void play() {
         System.out.printf("Playing " + title + " by " + artlist);
         for (String str : tracks) {
             System.out.printf("-Track:" + str);
         }
+    }
+
+    public void playTrack(int track) {
+
     }
 }
