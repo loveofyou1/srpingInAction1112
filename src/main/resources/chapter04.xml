@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="audience4" class="chapter04.service.Audience4"/>
+
+    <aop:config>
+        <!--  <aop:aspect ref="audience4">
+              <aop:before pointcut="execution(* chapter04.service.Performance.performance(..))"
+                          method="silenceCellPhone"/>
+
+              <aop:before pointcut="execution(* chapter04.service.Performance.performance(..))" method="testSuides"/>
+              <aop:after-returning pointcut="execution(* chapter04.service.Performance.performance(..))"
+                                   method="applaud"/>
+              <aop:after-throwing method="demandRefund"
+                                  pointcut="execution(* chapter04.service.Performance.performance(..))"/>
+          </aop:aspect>-->
+
+        <aop:aspect ref="audience4">
+            <aop:pointcut id="performance" expression="execution(* chapter04.service.Performance.performance(..))"/>
+
+            <aop:before pointcut-ref="performance"
+                        method="silenceCellPhone"/>
+
+            <aop:before pointcut-ref="performance" method="testSuides"/>
+            <aop:after-returning pointcut-ref="performance"
+                                 method="applaud"/>
+            <aop:after-throwing method="demandRefund"
+                                pointcut-ref="performance"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
